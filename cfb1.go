@@ -15,7 +15,7 @@ type cfb1 struct {
 
 func (x *cfb1) XORKeyStream(dst, src []byte) {
 	if len(dst) < len(src) {
-		panic("cryptobin/cfb1: output smaller than input")
+		panic("cfb1: output smaller than input")
 	}
 
 	for i := range src {
@@ -70,7 +70,7 @@ func leftShiftBytes(bytes []byte, carry byte) []byte {
 func NewCFB1(block cipher.Block, iv []byte, decrypt bool) cipher.Stream {
 	blockSize := block.BlockSize()
 	if len(iv) != blockSize {
-		panic("cryptobin/cfb1: IV length must equal block size")
+		panic("cfb1: IV length must equal block size")
 	}
 
 	x := &cfb1{
