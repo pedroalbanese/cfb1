@@ -1,7 +1,5 @@
 package CFB1
 
-package main
-
 import (
 	"crypto/cipher"
 )
